@@ -35,15 +35,7 @@ This tool solves this by providing:
 
 ---
 
-## 3. Team Responsibilities
-
-- **Teammate 1 — Backend & AI (Somesh's Role)**: Implemented FastAPI REST routes, databases, SQLAlchemy mappings, cascade deletions, OpenCV frame samplers, YOLOv8 CPU scripts, unified timeline, chain logs, and validation test suites.
-- **Teammate 2 — Frontend**: Dashboard interfaces, video timeline filters, HTML canvas players, and report generation screens.
-- **Teammate 3 — Forensic Engineering**: Low-level disk reconstruction, replacing simulated stubs in `forensic_service.py` to parse physical NVR partitions and write active/deleted recording formats to disk.
-
----
-
-## 4. Repository Structure
+## 3. Repository Structure
 
 ```
 forensic_dvr_tool/
@@ -79,7 +71,7 @@ forensic_dvr_tool/
 
 ---
 
-## 5. Quick Start Setup
+## 4. Quick Start Setup
 
 ### Step 1: Install Python Dependencies
 Run this in the `backend/` directory:
@@ -102,7 +94,7 @@ python app/main.py
 
 ---
 
-## 6. Running Tests & AI Regression Audits
+## 5. Running Tests & AI Regression Audits
 
 ### 1. Execute Unit/Integration Tests
 Runs the test suite against an isolated database `test_forensic.db`:
@@ -124,7 +116,7 @@ python e2e_regression_yolo.py
 
 ---
 
-## 7. Current Implementation Limitations
+## 6. Current Implementation Limitations
 1. **Synchronous AI Processing**: Large clips block REST execution cycles. Future versions should run AI queries inside background worker processes.
 2. **Simulated Parts**: low-level Dahua/Hikvision filesystem carving and layouts reconstruction are currently simulated. Interface hooks are ready in `ForensicService` for Teammate 3 (Forensic Engineering) to integrate.
 3. **No GPU Acceleration**: YOLOv8 scans run on the CPU.
