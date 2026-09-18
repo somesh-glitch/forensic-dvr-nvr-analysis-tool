@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis &mdash; CASEFILE</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/analysis.css">
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            background: #06090f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .video-element {
+            width: 100%;
+            height: 100%;
+            max-height: 420px;
+            object-fit: contain;
+        }
+
+        .boxes-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .ai-badge {
+            position: absolute;
+            top: 14px;
+            left: 140px;
+            background: rgba(220, 38, 38, 0.85);
+            border: 1px solid rgba(220, 38, 38, 0.4);
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.2);
+            backdrop-filter: blur(4px);
+            z-index: 20;
+            color: #fff;
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            display: none;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .dash-panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cam-select {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .dz-select {
+            cursor: pointer;
+        }
+
+        .dz-select.type-danger {
+            background: var(--red);
+            border-color: rgba(220, 38, 38, 0.4);
+            color: #fff;
+        }
+
+        .dz-select.type-danger:hover {
+            background: #b91c1c;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 960px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ev-row {
+            width: 100%;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-soft);
+            color: var(--text-2);
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.15s ease;
+        }
+
+        .ev-row:hover {
+            background: var(--panel-focus);
+            color: var(--text-1);
+        }
+
+        .ev-row.active {
+            background: rgba(47, 214, 232, 0.1);
+            color: var(--teal);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">CF</div>
+                <div class="brand-text">
+                    <b>CASEFILE</b>
+                    <span>FORENSIC ANALYSIS</span>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <a class="nav-item" href="dashboard.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                        <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                    </svg>
+                    Dashboard
+                </a>
+                <a class="nav-item" href="cases.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+                    </svg>
+                    Cases
+                </a>
+                <a class="nav-item" href="evidence.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                        <path d="M14 3v6h6" />
+                    </svg>
+                    Evidence
+                </a>
+                <a class="nav-item active" href="analysis.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="M21 21l-4.3-4.3" />
+                    </svg>
+                    Analysis
+                </a>
+                <a class="nav-item" href="timeline.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 3" />
+                    </svg>
+                    Timeline
+                </a>
+                <a class="nav-item" href="custody.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+                    </svg>
+                    Chain of Custody
+                </a>
+                <a class="nav-item" href="reports.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                        <path d="M9 13h6M9 17h6" />
+                    </svg>
+                    Reports
+                </a>
+            </nav>
+
+            <div class="sys-status">
+                <div class="label">SYSTEM STATUS</div>
+                <div class="sys-row"><span class="dot ok"></span>Forensic Engine</div>
+                <div class="sys-row"><span class="dot ok"></span>Database</div>
+                <div class="sys-row" id="sys-backend-mode"><span class="dot ok"></span>Backend</div>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="main">
+            <div class="topbar">
+                <div class="crumb">
+                    <span class="crumb-folder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+                        </svg></span>
+                    <span class="case-id" id="activeCaseNum">SELECT CASE</span>
+                    <span class="sep">/</span>
+                    <span class="case-name" id="activeCaseName">No active case selected</span>
+                </div>
+                <div class="topbar-right">
+                    <div class="badge checking" id="connStatusBadge"><span class="badge-dot"></span>CONNECTED</div>
+                    <div class="investigator">
+                        <div class="investigator-avatar">IN</div>
+                        <span id="activeInvestigator">Investigator</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="page-head analysis-head">
+                    <div>
+                        <div class="page-eyebrow">FORENSIC ANALYSIS & EXPORTS</div>
+                        <h1 class="page-title" id="camTitle">Camera Feed</h1>
+                        <p class="page-sub" id="camSub">Ingest evidence to view camera channels.</p>
+                    </div>
+                    <div class="cam-select">
+                        <button class="dz-select type-soft" id="runAiBtn" style="display: none;">RUN AI
+                            ANALYSIS</button>
+                        <div>
+                            <span class="eyebrow-label">CAMERA SOURCE</span>
+                            <select id="camPicker">
+                                <option value="">No cameras loaded</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analysis-grid">
+                    <!-- PLAYER -->
+                    <div class="player-col">
+                        <div class="player card">
+                            <div class="video-container">
+                                <div class="crt-lines" aria-hidden="true" style="pointer-events: none; z-index: 5;">
+                                </div>
+                                <div class="rec-badge" id="recBadge" style="display: none; z-index: 15;"><span
+                                        class="rec-dot"></span>REC</div>
+                                <div class="cam-tag" id="camOverlayTag" style="z-index: 15;">CAM 00</div>
+                                <div class="ts-tag" id="tsTag" style="z-index: 15;">0000-00-00&nbsp;&nbsp;00:00:00</div>
+                                <div class="ai-badge" id="aiBadge"><span class="rec-dot"
+                                        style="background:#ef4444;"></span>AI ACTIVE</div>
+
+                                <video id="videoPlayer" class="video-element" style="display: none;"></video>
+                                <canvas id="boxesCanvas" class="boxes-canvas"></canvas>
+
+                                <div id="videoPlaceholder">
+                                    <svg class="video-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.3" style="width: 64px; height: 64px; color: var(--text-3);">
+                                        <path
+                                            d="M4 6.5A1.5 1.5 0 0 1 5.5 5h9A1.5 1.5 0 0 1 16 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 4 17.5z" />
+                                        <path d="M16 9.5l4.2-2.4a.6.6 0 0 1 .8.5v8.8a.6.6 0 0 1-.8.5L16 14.5" />
+                                    </svg>
+                                    <div style="font-size:13px; color:var(--text-3); margin-top:10px;">Select a camera
+                                        to start playback</div>
+                                </div>
+                            </div>
+
+                            <div class="scrub-wrap">
+                                <div class="scrub-times">
+                                    <span id="currentTimeLabel">00:00:00</span>
+                                    <span id="durationLabel">00:00:00</span>
+                                </div>
+                                <div class="scrub-track" id="scrubTrack">
+                                    <div class="scrub-fill" id="scrubFill" style="width:0%"></div>
+                                    <!-- Interactive timeline ticks constructed by analysis.js -->
+                                    <div class="scrub-handle" id="scrubHandle" style="left:0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="controls">
+                                <button class="ctrl-btn" id="playBtn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                    Play
+                                </button>
+                                <button class="ctrl-btn" id="pauseBtn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <rect x="6" y="5" width="4" height="14" />
+                                        <rect x="14" y="5" width="4" height="14" />
+                                    </svg>
+                                    Pause
+                                </button>
+                                <button class="ctrl-btn" id="snapBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <path
+                                            d="M4 8a2 2 0 0 1 2-2h1l1.2-1.6a1 1 0 0 1 .8-.4h6a1 1 0 0 1 .8.4L17 6h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+                                        <circle cx="12" cy="13" r="3.4" />
+                                    </svg>
+                                    Snapshot
+                                </button>
+                                <div class="ctrl-spacer"></div>
+                                <div class="ctrl-meta" id="videoMetaLabel">NO TRACK CURRENTLY LOADED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EVENTS -->
+                    <div class="events-col">
+                        <div class="events-head">
+                            <span class="eyebrow-label">DETECTED OBJECTS</span>
+                            <span class="events-count" id="eventsCount">0</span>
+                        </div>
+                        <div class="events-log card" id="eventsLog" style="max-height: 380px; overflow-y: auto;">
+                            <!-- Detections lists appended dynamically by analysis.js -->
+                            <div style="padding: 20px; text-align: center; color: var(--text-3); font-size: 13px;">
+                                Run AI analysis to detect objects.
+                            </div>
+                        </div>
+
+                        <div class="legend">
+                            <div class="legend-item"><span class="ev-dot person"
+                                    style="background:#10b981;"></span>Person</div>
+                            <div class="legend-item"><span class="ev-dot motion"
+                                    style="background:#eab308;"></span>Vehicle</div>
+                            <div class="legend-item"><span class="ev-dot scene"
+                                    style="background:#3b82f6;"></span>Static Object</div>
+                            <div class="legend-item"><span class="ev-dot anomaly"
+                                    style="background:#ec4899;"></span>Other</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/analysis.js"></script>
+</body>
+
+</html>

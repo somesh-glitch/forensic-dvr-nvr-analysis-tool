@@ -1,0 +1,115 @@
+.cases-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 1160px;
+}
+
+.cases-page__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.cases-page__toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--green-dim);
+  border: 1px solid var(--green-border);
+  color: var(--green);
+  font-size: var(--text-sm);
+  animation: page-in var(--duration-slow) var(--ease-out);
+}
+
+.cases-page__toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cases-page__search {
+  flex: 1;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 13px;
+  border-radius: var(--radius-md);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.cases-page__search:focus-within {
+  border-color: var(--cyan-border);
+}
+
+.cases-page__search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-family: inherit;
+}
+
+.cases-page__search input::placeholder {
+  color: var(--text-muted);
+}
+
+.cases-page__filter {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cases-page__filter select {
+  appearance: none;
+  padding: 9px 34px 9px 13px;
+  border-radius: var(--radius-md);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.cases-page__filter select:focus {
+  outline: none;
+  border-color: var(--cyan-border);
+}
+
+.cases-page__filter-chevron {
+  position: absolute;
+  right: 12px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.cases-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cases-page__skel-line {
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 640px) {
+  .cases-page__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cases-page__search {
+    max-width: none;
+  }
+}

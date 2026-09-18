@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports &mdash; CASEFILE</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/reports.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">CF</div>
+        <div class="brand-text">
+          <b>CASEFILE</b>
+          <span>FORENSIC ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item " href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+          Dashboard
+        </a>
+        <a class="nav-item " href="cases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+          </svg>
+          Cases
+        </a>
+        <a class="nav-item " href="evidence.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M14 3v6h6" />
+          </svg>
+          Evidence
+        </a>
+        <a class="nav-item " href="analysis.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
+          Analysis
+        </a>
+        <a class="nav-item " href="timeline.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 3" />
+          </svg>
+          Timeline
+        </a>
+        <a class="nav-item " href="custody.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+          </svg>
+          Chain of Custody
+        </a>
+        <a class="nav-item active" href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M9 13h6M9 17h6" />
+          </svg>
+          Reports
+        </a>
+      </nav>
+
+      <div class="sys-status">
+        <div class="label">SYSTEM STATUS</div>
+        <div class="sys-row"><span class="dot ok"></span>Forensic Engine</div>
+        <div class="sys-row"><span class="dot ok"></span>Database</div>
+        <div class="sys-row"><span class="dot warn"></span>Backend&nbsp;&middot;&nbsp;Mock data</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <div class="topbar">
+        <div class="crumb">
+          <span class="crumb-folder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+            </svg></span>
+          <span class="case-id">CASE-2026-0042</span>
+          <span class="sep">/</span>
+          <span class="case-name">Multi-Vendor CCTV Investigation</span>
+        </div>
+        <div class="topbar-right">
+          <div class="badge checking"><span class="badge-dot"></span>CHECKING&hellip;</div>
+          <div class="investigator">
+            <div class="investigator-avatar">IN</div>
+            Investigator
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="page-head">
+          <div class="page-head-text">
+            <div class="page-eyebrow">DOCUMENTATION</div>
+            <h1 class="page-title">Reports</h1>
+            <p class="page-sub">Compile findings, custody records, and integrity proof into a signed forensic report.
+            </p>
+          </div>
+          <div class="reports-actions">
+            <button class="btn" id="previewBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              Preview
+            </button>
+            <button class="btn btn-primary" id="generateBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                <path d="M14 3v6h6" />
+              </svg>
+              <span id="generateLabel">Generate Report</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="reports-grid">
+
+          <!-- LEFT: sections to include -->
+          <div class="reports-main">
+
+            <div class="card report-section">
+              <div class="rs-head">
+                <span class="eyebrow-label">SECTION 1</span>
+                <h3 class="dash-panel-title">Case Information</h3>
+              </div>
+              <div class="rs-fields">
+                <div class="rs-field"><span class="rs-k">Case ID</span><span class="rs-v mono">CASE-2026-0042</span>
+                </div>
+                <div class="rs-field"><span class="rs-k">Case name</span><span class="rs-v">Multi-Vendor CCTV
+                    Investigation</span></div>
+                <div class="rs-field"><span class="rs-k">Investigator</span><span class="rs-v">Investigator</span></div>
+                <div class="rs-field"><span class="rs-k">Opened</span><span class="rs-v mono">2026-08-14</span></div>
+              </div>
+            </div>
+
+            <div class="card report-section">
+              <div class="rs-head">
+                <span class="eyebrow-label">SECTION 2</span>
+                <h3 class="dash-panel-title">Device Information</h3>
+              </div>
+              <div class="rs-fields">
+                <div class="rs-field"><span class="rs-k">Vendor</span><span class="rs-v">Hikvision</span></div>
+                <div class="rs-field"><span class="rs-k">Device</span><span class="rs-v mono">NVR-8CH</span></div>
+                <div class="rs-field"><span class="rs-k">Cameras</span><span class="rs-v">8</span></div>
+                <div class="rs-field"><span class="rs-k">Firmware</span><span class="rs-v mono">V4.30.226</span></div>
+              </div>
+            </div>
+
+            <div class="card report-section">
+              <div class="rs-head">
+                <span class="eyebrow-label">SECTION 3</span>
+                <h3 class="dash-panel-title">Evidence Summary</h3>
+              </div>
+              <div class="rs-mini-stats">
+                <div class="rs-mini-stat"><span class="rs-mini-val">126</span><span class="rs-mini-lbl">Total
+                    files</span></div>
+                <div class="rs-mini-stat"><span class="rs-mini-val">126</span><span class="rs-mini-lbl">Hashed</span>
+                </div>
+                <div class="rs-mini-stat"><span class="rs-mini-val">17</span><span class="rs-mini-lbl">Events</span>
+                </div>
+                <div class="rs-mini-stat"><span class="rs-mini-val ok">0</span><span
+                    class="rs-mini-lbl">Discrepancies</span></div>
+              </div>
+            </div>
+
+            <div class="card report-section">
+              <div class="rs-head">
+                <span class="eyebrow-label">SECTION 4</span>
+                <h3 class="dash-panel-title">Integrity Verification</h3>
+              </div>
+              <div class="rs-integrity">
+                <div class="chip chip-ok rs-integrity-chip">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  All 126 files verified
+                </div>
+                <p class="rs-integrity-desc">SHA-256 and MD5 checksums for every evidence file matched their
+                  acquisition-time manifest with zero discrepancies.</p>
+              </div>
+            </div>
+
+            <div class="card report-section">
+              <div class="rs-head">
+                <span class="eyebrow-label">SECTION 5</span>
+                <h3 class="dash-panel-title">Analysis Findings</h3>
+              </div>
+              <ul class="rs-findings">
+                <li><span class="ev-dot motion"></span>Motion detected &middot; Camera 04, Lobby &middot; 14:35:21</li>
+                <li><span class="ev-dot person"></span>Person detected &middot; Camera 04, Lobby &middot; 14:42:08</li>
+                <li><span class="ev-dot scene"></span>Scene change &middot; Camera 04, Lobby &middot; 14:48:32</li>
+                <li><span class="ev-dot anomaly"></span>Anomaly flagged &middot; Camera 04, Lobby &middot; 14:56:10</li>
+              </ul>
+            </div>
+
+            <div class="card report-section">
+              <div class="rs-head">
+                <span class="eyebrow-label">SECTION 6</span>
+                <h3 class="dash-panel-title">Timeline &amp; Chain of Custody</h3>
+              </div>
+              <p class="rs-linktext">
+                Full chronology available on the <a href="timeline.html">Timeline</a> page &middot;
+                complete audit trail on <a href="custody.html">Chain of Custody</a>.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: preview + export -->
+          <div class="reports-side">
+            <div class="card report-preview">
+              <div class="rp-head">
+                <span class="eyebrow-label">REPORT PREVIEW</span>
+              </div>
+              <div class="rp-doc">
+                <div class="rp-doc-header">
+                  <div class="rp-doc-mark">CF</div>
+                  <div>
+                    <div class="rp-doc-title">Forensic Report</div>
+                    <div class="rp-doc-sub mono">CASE-2026-0042</div>
+                  </div>
+                </div>
+                <div class="rp-doc-line"></div>
+                <div class="rp-doc-line"></div>
+                <div class="rp-doc-line short"></div>
+                <div class="rp-doc-block"></div>
+                <div class="rp-doc-line"></div>
+                <div class="rp-doc-line short"></div>
+                <div class="rp-doc-chip"><span class="chip chip-ok" style="font-size:9.5px;">VERIFIED</span></div>
+              </div>
+              <div class="rp-status" id="rpStatus">
+                <span class="eyebrow-label">STATUS</span>
+                <span class="chip chip-neutral">Not generated</span>
+              </div>
+            </div>
+
+            <div class="card report-export">
+              <div class="rs-head">
+                <span class="eyebrow-label">EXPORT</span>
+              </div>
+              <button class="export-row" data-format="PDF">
+                <span class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                    <path d="M14 3v6h6" />
+                  </svg></span>
+                <span class="export-row-text">Export as PDF</span>
+                <svg class="export-row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+              </button>
+              <button class="export-row" data-format="JSON">
+                <span class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path
+                      d="M8 3H6a2 2 0 0 0-2 2v3M16 3h2a2 2 0 0 1 2 2v3M20 16v3a2 2 0 0 1-2 2h-2M4 16v3a2 2 0 0 0 2 2h2" />
+                  </svg></span>
+                <span class="export-row-text">Export manifest as JSON</span>
+                <svg class="export-row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/reports.js"></script>
+</body>
+
+</html>

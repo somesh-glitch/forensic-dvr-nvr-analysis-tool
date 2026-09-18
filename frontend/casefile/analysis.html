@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analysis — CASEFILE</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/analysis.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">CF</div>
+      <div class="brand-text">
+        <b>CASEFILE</b>
+        <span>FORENSIC ANALYSIS</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav-item" href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="cases.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>
+        Cases
+      </a>
+      <a class="nav-item" href="evidence.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>
+        Evidence
+      </a>
+      <a class="nav-item active" href="analysis.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        Analysis
+      </a>
+      <a class="nav-item" href="timeline.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Timeline
+      </a>
+      <a class="nav-item" href="custody.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
+        Chain of Custody
+      </a>
+      <a class="nav-item" href="reports.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M9 13h6M9 17h6"/></svg>
+        Reports
+      </a>
+    </nav>
+
+    <div class="sys-status">
+      <div class="label">SYSTEM STATUS</div>
+      <div class="sys-row"><span class="dot ok"></span>Forensic Engine</div>
+      <div class="sys-row"><span class="dot ok"></span>Database</div>
+      <div class="sys-row"><span class="dot bad"></span>Backend</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">
+        <span class="case-id">CASE-2026-0042</span>
+        <span class="sep">/</span>
+        <span class="case-name">Multi-Vendor CCTV Investigation</span>
+      </div>
+      <div class="topbar-right">
+        <div class="badge offline"><span class="badge-dot"></span>OFFLINE</div>
+        <div class="investigator">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          Investigator
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="page-head analysis-head">
+        <div>
+          <div class="page-eyebrow">FORENSIC ANALYSIS</div>
+          <h1 class="page-title">Camera 04</h1>
+          <p class="page-sub">Hikvision DVR</p>
+        </div>
+        <div class="cam-select">
+          <span class="eyebrow-label">SOURCE</span>
+          <select id="camPicker">
+            <option>Camera 01 — Front Entrance</option>
+            <option>Camera 02 — Loading Dock</option>
+            <option>Camera 03 — Stairwell B</option>
+            <option selected>Camera 04 — Lobby</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="analysis-grid">
+        <!-- PLAYER -->
+        <div class="player-col">
+          <div class="player card">
+            <div class="player-frame">
+              <div class="crt-lines" aria-hidden="true"></div>
+              <div class="rec-badge"><span class="rec-dot"></span>REC</div>
+              <div class="cam-tag">CAM 04 · LOBBY</div>
+              <div class="ts-tag" id="tsTag">2026-08-14&nbsp;&nbsp;14:35:21</div>
+              <svg class="video-ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h9A1.5 1.5 0 0 1 16 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 4 17.5z"/><path d="M16 9.5l4.2-2.4a.6.6 0 0 1 .8.5v8.8a.6.6 0 0 1-.8.5L16 14.5"/></svg>
+              <div class="ph-label">CCTV VIDEO</div>
+            </div>
+
+            <div class="scrub-wrap">
+              <div class="scrub-times">
+                <span>00:14:32</span>
+                <span>00:32:18</span>
+              </div>
+              <div class="scrub-track" id="scrubTrack">
+                <div class="scrub-fill" id="scrubFill" style="width:38%"></div>
+                <div class="scrub-tick motion" style="left:22%" title="Motion Detected · 14:35:21"></div>
+                <div class="scrub-tick person" style="left:41%" title="Person Detected · 14:42:08"></div>
+                <div class="scrub-tick scene" style="left:63%" title="Scene Change · 14:48:32"></div>
+                <div class="scrub-tick anomaly" style="left:82%" title="Anomaly · 14:56:10"></div>
+                <div class="scrub-handle" id="scrubHandle" style="left:38%"></div>
+              </div>
+            </div>
+
+            <div class="controls">
+              <button class="ctrl-btn primary" id="playBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                Play
+              </button>
+              <button class="ctrl-btn" id="pauseBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+                Pause
+              </button>
+              <button class="ctrl-btn" id="snapBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h1l1.2-1.6a1 1 0 0 1 .8-.4h6a1 1 0 0 1 .8.4L17 6h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.4"/></svg>
+                Snapshot
+              </button>
+              <div class="ctrl-spacer"></div>
+              <div class="ctrl-meta">FRAME 00042 &nbsp;·&nbsp; 25 FPS</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="events-col">
+          <div class="events-head">
+            <span class="eyebrow-label">DETECTED EVENTS</span>
+            <span class="events-count">4</span>
+          </div>
+          <div class="events-log card">
+            <button class="ev-row" data-tag="motion">
+              <span class="ev-time">14:35:21</span>
+              <span class="ev-dot motion"></span>
+              <span class="ev-label">Motion Detected</span>
+            </button>
+            <button class="ev-row" data-tag="person">
+              <span class="ev-time">14:42:08</span>
+              <span class="ev-dot person"></span>
+              <span class="ev-label">Person Detected</span>
+            </button>
+            <button class="ev-row" data-tag="scene">
+              <span class="ev-time">14:48:32</span>
+              <span class="ev-dot scene"></span>
+              <span class="ev-label">Scene Change</span>
+            </button>
+            <button class="ev-row" data-tag="anomaly">
+              <span class="ev-time">14:56:10</span>
+              <span class="ev-dot anomaly"></span>
+              <span class="ev-label">Anomaly</span>
+            </button>
+          </div>
+
+          <div class="legend">
+            <div class="legend-item"><span class="ev-dot motion"></span>Motion</div>
+            <div class="legend-item"><span class="ev-dot person"></span>Person</div>
+            <div class="legend-item"><span class="ev-dot scene"></span>Scene change</div>
+            <div class="legend-item"><span class="ev-dot anomaly"></span>Anomaly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/analysis.js"></script>
+</body>
+</html>

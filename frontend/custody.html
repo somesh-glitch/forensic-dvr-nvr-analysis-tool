@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chain of Custody &mdash; CASEFILE</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/custody.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">CF</div>
+        <div class="brand-text">
+          <b>CASEFILE</b>
+          <span>FORENSIC ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item " href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+          Dashboard
+        </a>
+        <a class="nav-item " href="cases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+          </svg>
+          Cases
+        </a>
+        <a class="nav-item " href="evidence.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M14 3v6h6" />
+          </svg>
+          Evidence
+        </a>
+        <a class="nav-item " href="analysis.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
+          Analysis
+        </a>
+        <a class="nav-item " href="timeline.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 3" />
+          </svg>
+          Timeline
+        </a>
+        <a class="nav-item active" href="custody.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+          </svg>
+          Chain of Custody
+        </a>
+        <a class="nav-item " href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M9 13h6M9 17h6" />
+          </svg>
+          Reports
+        </a>
+      </nav>
+
+      <div class="sys-status">
+        <div class="label">SYSTEM STATUS</div>
+        <div class="sys-row"><span class="dot ok"></span>Forensic Engine</div>
+        <div class="sys-row"><span class="dot ok"></span>Database</div>
+        <div class="sys-row"><span class="dot warn"></span>Backend&nbsp;&middot;&nbsp;Mock data</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <div class="topbar">
+        <div class="crumb">
+          <span class="crumb-folder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+            </svg></span>
+          <span class="case-id">CASE-2026-0042</span>
+          <span class="sep">/</span>
+          <span class="case-name">Multi-Vendor CCTV Investigation</span>
+        </div>
+        <div class="topbar-right">
+          <div class="badge checking"><span class="badge-dot"></span>CHECKING&hellip;</div>
+          <div class="investigator">
+            <div class="investigator-avatar">IN</div>
+            Investigator
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="page-head">
+          <div class="page-head-text">
+            <div class="page-eyebrow">CUSTODY &amp; INTEGRITY</div>
+            <h1 class="page-title">Chain of Custody</h1>
+            <p class="page-sub">End-to-end audit trail from acquisition to report, for case CASE-2026-0042.</p>
+          </div>
+          <div class="chip chip-ok custody-status-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+            CHAIN INTACT
+          </div>
+        </div>
+
+        <!-- CUSTODY STAGES -->
+        <div class="custody-stages card grid-texture">
+          <div class="cs-stage done">
+            <div class="cs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></div>
+            <span class="cs-label">Evidence<br>Acquired</span>
+          </div>
+          <div class="cs-connector done"></div>
+          <div class="cs-stage done">
+            <div class="cs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></div>
+            <span class="cs-label">Evidence<br>Registered</span>
+          </div>
+          <div class="cs-connector done"></div>
+          <div class="cs-stage done">
+            <div class="cs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></div>
+            <span class="cs-label">Hash<br>Generated</span>
+          </div>
+          <div class="cs-connector done"></div>
+          <div class="cs-stage done verified">
+            <div class="cs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></div>
+            <span class="cs-label">Integrity<br>Verified</span>
+          </div>
+          <div class="cs-connector done"></div>
+          <div class="cs-stage done">
+            <div class="cs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></div>
+            <span class="cs-label">Analysis</span>
+          </div>
+          <div class="cs-connector done"></div>
+          <div class="cs-stage done">
+            <div class="cs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></div>
+            <span class="cs-label">Evidence<br>Access</span>
+          </div>
+          <div class="cs-connector done"></div>
+          <div class="cs-stage active">
+            <div class="cs-dot"><span class="cs-dot-pulse"></span></div>
+            <span class="cs-label">Findings</span>
+          </div>
+          <div class="cs-connector"></div>
+          <div class="cs-stage pending">
+            <div class="cs-dot">8</div>
+            <span class="cs-label">Report</span>
+          </div>
+        </div>
+
+        <!-- AUDIT TRAIL -->
+        <div class="custody-audit-head">
+          <span class="eyebrow-label">AUDIT TRAIL</span>
+          <h3 class="dash-panel-title">Custody Log</h3>
+        </div>
+
+        <div class="card custody-table-wrap">
+          <table class="table custody-table">
+            <thead>
+              <tr>
+                <th>Evidence ID</th>
+                <th>Action</th>
+                <th>Investigator</th>
+                <th>Timestamp</th>
+                <th>SHA-256</th>
+                <th>Integrity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">EVD-0042-001</td>
+                <td>Evidence acquired</td>
+                <td>Investigator</td>
+                <td class="mono muted">2026-08-14&nbsp;10:00</td>
+                <td class="mono muted">&mdash;</td>
+                <td><span class="chip chip-neutral">Pending</span></td>
+              </tr>
+              <tr>
+                <td class="mono">EVD-0042-001</td>
+                <td>Registered to case</td>
+                <td>Investigator</td>
+                <td class="mono muted">2026-08-14&nbsp;11:20</td>
+                <td class="mono muted">&mdash;</td>
+                <td><span class="chip chip-neutral">Pending</span></td>
+              </tr>
+              <tr>
+                <td class="mono">EVD-0042-001</td>
+                <td>SHA-256 generated</td>
+                <td>Forensic Engine</td>
+                <td class="mono muted">2026-08-14&nbsp;11:24</td>
+                <td class="mono hash">a91f4c&hellip;9e6c2e</td>
+                <td><span class="chip chip-warn">Generated</span></td>
+              </tr>
+              <tr class="row-highlight">
+                <td class="mono">EVD-0042-001</td>
+                <td>Integrity verified</td>
+                <td>Forensic Engine</td>
+                <td class="mono muted">2026-08-14&nbsp;12:05</td>
+                <td class="mono hash">a91f4c&hellip;9e6c2e</td>
+                <td>
+                  <span class="chip chip-ok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    Verified
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="mono">EVD-0042-001</td>
+                <td>Analysis pass run</td>
+                <td>Forensic Engine</td>
+                <td class="mono muted">2026-08-14&nbsp;13:42</td>
+                <td class="mono hash">a91f4c&hellip;9e6c2e</td>
+                <td><span class="chip chip-ok">Verified</span></td>
+              </tr>
+              <tr>
+                <td class="mono">EVD-0042-001</td>
+                <td>Evidence accessed</td>
+                <td>Investigator</td>
+                <td class="mono muted">2026-08-14&nbsp;14:10</td>
+                <td class="mono hash">a91f4c&hellip;9e6c2e</td>
+                <td><span class="chip chip-ok">Verified</span></td>
+              </tr>
+              <tr>
+                <td class="mono">EVD-0042-014</td>
+                <td>Evidence acquired</td>
+                <td>Investigator</td>
+                <td class="mono muted">2026-08-14&nbsp;10:04</td>
+                <td class="mono muted">&mdash;</td>
+                <td><span class="chip chip-neutral">Pending</span></td>
+              </tr>
+              <tr>
+                <td class="mono">EVD-0042-014</td>
+                <td>Integrity verified</td>
+                <td>Forensic Engine</td>
+                <td class="mono muted">2026-08-14&nbsp;12:09</td>
+                <td class="mono hash">7b02e1&hellip;c4419a</td>
+                <td>
+                  <span class="chip chip-ok">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    Verified
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="custody-footnote">Showing 8 of 126 custody events for CASE-2026-0042. Full audit trail exportable from
+          Reports.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/custody.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+{
+  "project": "Multi-Vendor DVR/NVR Forensic Analysis Tool",
+  "team": {
+    "backend_ai": {
+      "owner": "Somesh (Backend + AI Team Member)",
+      "status": "PARTIAL / PROTOTYPE",
+      "responsibilities": [
+        "FastAPI REST API Routing gateways",
+        "SQLite & SQLAlchemy Database Models configuration",
+        "OpenCV frame decoding & video metadata extraction",
+        "YOLOv8 CPU object detection pipeline execution",
+        "Unified Temporal Sorter & Timeline Engine",
+        "Chain of Custody Legal Audit Log",
+        "Forensic markdown report compiler dossiers",
+        "Pytest API test suites & Yolov8 regression checks validation"
+      ]
+    },
+    "frontend": {
+      "owner": "Frontend Teammate",
+      "status": "RESERVED FOR FRONTEND",
+      "responsibilities": [
+        "Interactive investigation dashboard React UI",
+        "Case, timeline, and audit tables rendering",
+        "Video player widgets with canvas bounding box overlays",
+        "Report rendering and PDF exports compilation"
+      ]
+    },
+    "forensic_engineering": {
+      "owner": "Forensic Engineering Teammate",
+      "status": "RESERVED FOR FORENSIC ENGINEER",
+      "responsibilities": [
+        "Low-level binary scans and partition layout reconstruction",
+        "Proprietary DVR/NVR filesystem decoders implementation",
+        "Video block fragment carve reconstruction from unallocated space",
+        "Hardware metadata fields extraction (NVR models, serials)"
+      ]
+    }
+  },
+  "components": [
+    {
+      "path": "backend/app/main.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Application startup, CORS configuration, SQLite database metadata base auto-creation settings, SQLite database patches, API router bindings entrypoints, mount storage dynamically to serve media files statically.",
+      "dependencies": ["fastapi", "uvicorn", "app.config", "app.database.session", "app.api"]
+    },
+    {
+      "path": "backend/app/config.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "System paths configurations, thresholds, and environmental configurations loaded using Pydantic Settings.",
+      "dependencies": ["pydantic-settings"]
+    },
+    {
+      "path": "backend/app/database/session.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Configures SQL database engine, transaction pooling settings, and session scopes generators.",
+      "dependencies": ["sqlalchemy"]
+    },
+    {
+      "path": "backend/app/models/models.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Declares SQLAlchemy models mapping cases, evidence, cameras, videos, ai_detections, recovered_files, chain_of_custody, and reports tables.",
+      "dependencies": ["sqlalchemy"]
+    },
+    {
+      "path": "backend/app/schemas/schemas.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Declares Pydantic V2 models defining schema validation configurations for network requests.",
+      "dependencies": ["pydantic"]
+    },
+    {
+      "path": "backend/app/services/ai_service.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Processes video frame extraction via OpenCV, implements YOLOv8n CPU weights inference, normalizes bounding box coordinates ratios, handles transaction integrations, and runs simulated fallback modes.",
+      "dependencies": ["ultralytics", "opencv-python-headless", "sqlalchemy"]
+    },
+    {
+      "path": "backend/app/services/forensic_service.py",
+      "owner": "backend_ai",
+      "status": "SIMULATED / INTEGRATION HOOK",
+      "purpose": "Calculates file cryptohashes, scans binary block magic byte signatures, maps camera channels, and carves deleted files. Uses mockup generators for partition maps and carving sector fragments.",
+      "dependencies": ["opencv-python-headless"]
+    },
+    {
+      "path": "backend/app/services/timeline_service.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Fetches, normalizes, and chronologizes ingestion markers, object detections, carved sector coordinates, and investigator audit logs.",
+      "dependencies": ["sqlalchemy"]
+    },
+    {
+      "path": "backend/app/api/",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Houses API router modules matching FastAPI endpoint maps.",
+      "dependencies": ["fastapi", "app.schemas", "app.models", "app.services"]
+    },
+    {
+      "path": "backend/tests/test_api.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Validates CRUD requests, simulated ingestion uploads, AI analysis configurations, invalid videopath responses, metadata extractions, and YOLO mock package imports.",
+      "dependencies": ["pytest", "fastapi.testclient"]
+    },
+    {
+      "path": "backend/validate_real_yolo.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Audits real YOLOv8 model loading metrics against demo video on main forensic database.",
+      "dependencies": ["app.services.ai_service"]
+    },
+    {
+      "path": "backend/e2e_regression_yolo.py",
+      "owner": "backend_ai",
+      "status": "REAL / IMPLEMENTED",
+      "purpose": "Client-simulation workflow validating ingestion processes, real YOLO CPU models, timeline queries, chain logs, and reports printing on main database forensic.db.",
+      "dependencies": ["fastapi.testclient", "app.models"]
+    }
+  ],
+  "api_endpoints": [
+    {
+      "path": "/api/v1/cases",
+      "methods": ["POST", "GET"],
+      "description": "Registers new cases / lists all investigation cases."
+    },
+    {
+      "path": "/api/v1/cases/{case_id}",
+      "methods": ["GET"],
+      "description": "Retrieves singular case details."
+    },
+    {
+      "path": "/api/v1/evidence/upload",
+      "methods": ["POST"],
+      "description": "Processes image or standard video file ingestion, calculating hashes, identifying vendors, mapping camera files, and carving deleted files."
+    },
+    {
+      "path": "/api/v1/evidence",
+      "methods": ["GET"],
+      "description": "Gets ingested files linked with cases."
+    },
+    {
+      "path": "/api/v1/evidence/{evidence_id}",
+      "methods": ["GET"],
+      "description": "Gets specific evidence file parameters."
+    },
+    {
+      "path": "/api/v1/evidence/{evidence_id}/videos",
+      "methods": ["GET"],
+      "description": "Lists extracted cameras and videos."
+    },
+    {
+      "path": "/api/v1/videos/{video_id}",
+      "methods": ["GET"],
+      "description": "Gets video details."
+    },
+    {
+      "path": "/api/v1/videos/{video_id}/metadata",
+      "methods": ["GET"],
+      "description": "Retrieves video codec configurations parsed via OpenCV."
+    },
+    {
+      "path": "/api/v1/evidence/{evidence_id}/recovery",
+      "methods": ["GET"],
+      "description": "Gets carved deleted sector coordinates."
+    },
+    {
+      "path": "/api/v1/analysis/{video_id}",
+      "methods": ["POST", "GET"],
+      "description": "POST triggers video frame object detection (REAL YOLOv8 or simulated mock). GET lists bounding box coordinates."
+    },
+    {
+      "path": "/api/v1/timeline/{case_id}",
+      "methods": ["GET"],
+      "description": "Retrieves chronologized unified timeline of all forensic events inside a case."
+    },
+    {
+      "path": "/api/v1/events/{case_id}",
+      "methods": ["GET"],
+      "description": "Gives case events."
+    },
+    {
+      "path": "/api/v1/events/{case_id}/search",
+      "methods": ["GET"],
+      "description": "Gives search-friendly filters on case events timeline."
+    },
+    {
+      "path": "/api/v1/chain-of-custody/{evidence_id}",
+      "methods": ["GET"],
+      "description": "Lists immutable auditing history trace logs for a device file."
+    },
+    {
+      "path": "/api/v1/reports/{case_id}",
+      "methods": ["POST", "GET"],
+      "description": "POST compiles markdown dossier, logs report generation event, writes data to disk. GET loads newest report."
+    }
+  ],
+  "database_tables": [
+    "cases",
+    "evidence",
+    "cameras",
+    "videos",
+    "ai_detections",
+    "recovered_files",
+    "chain_of_custody",
+    "reports"
+  ],
+  "known_limitations": [
+    "Synchronous AI scan: Large files block API worker loops.",
+    "Foreground/fallback imports: Ultralytics module checks on CPU only. GPU/CUDA processing flags are not used.",
+    "Simulated low-level parsing: Low-level Dahua/Hikvision physical disc reconstructions are mocked."
+  ],
+  "todo": [
+    "Asynchronous Task Schedulers integration (FastAPI BackgroundTasks).",
+    "Proprietary filesystem decoders binding inside forensic_service.",
+    "Video canvas bounding box React visualization overlays."
+  ]
+}

@@ -1,0 +1,230 @@
+.timeline-page {
+    animation: fadeIn 0.25s ease-out;
+}
+
+.timeline-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Filter Card styles */
+.timeline-filter-card {
+    max-width: 100%;
+}
+
+.filter-controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.filter-group--expand {
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.filter-select {
+    height: 38px;
+    background-color: var(--bg-dark-muted);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0 1rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    cursor: pointer;
+    outline: none;
+    min-width: 160px;
+}
+
+.filter-select:focus {
+    border-color: var(--cyan);
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--text-muted);
+}
+
+.search-input {
+    width: 100%;
+    height: 38px;
+    background-color: var(--bg-dark-muted);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding-left: 2.25rem;
+    padding-right: 1rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--cyan);
+}
+
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+/* Timeline Item */
+.timeline-item {
+    display: grid;
+    grid-template-columns: 120px auto 1fr;
+    align-items: flex-start;
+    gap: 1.5rem;
+    position: relative;
+}
+
+/* Connector dot mapping */
+.timeline-item__connector {
+    position: absolute;
+    left: 31px;
+    top: 1.5rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--border-color);
+}
+
+.timeline-item__time-col {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+}
+
+.timeline-time {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.timeline-date {
+    font-size: var(--text-xxs);
+    color: var(--text-muted);
+}
+
+.timeline-item__icon-node {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: var(--bg-dark-muted);
+    border: 2px solid var(--border-color);
+}
+
+/* Icon node category colors */
+.timeline-item__icon-node--info {
+    border-color: var(--blue-border);
+    color: var(--blue);
+    background-color: var(--blue-dim);
+}
+
+.timeline-item__icon-node--warning {
+    border-color: var(--orange-border);
+    color: var(--orange);
+    background-color: var(--orange-dim);
+}
+
+.timeline-item__icon-node--success {
+    border-color: var(--green-border);
+    color: var(--green);
+    background-color: var(--green-dim);
+}
+
+.timeline-item__icon-node--neutral {
+    border-color: var(--border-color);
+    color: var(--text-muted);
+    background-color: var(--bg-dark-muted);
+}
+
+.timeline-item__icon-node--danger {
+    border-color: var(--red-border);
+    color: var(--red);
+    background-color: var(--red-dim);
+}
+
+.timeline-item__content-card {
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--lh-normal);
+    margin: 0;
+}
+
+.timeline-item__action {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--text-xxs);
+    transition: transform 0.15s ease;
+}
+
+.timeline-item__action:hover {
+    transform: translateX(2px);
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .timeline-container::before {
+        left: 11px;
+    }
+
+    .timeline-item__connector {
+        display: none;
+    }
+
+    .timeline-item__time-col {
+        text-align: left;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .timeline-item__icon-node {
+        position: absolute;
+        left: -5px;
+        top: 2rem;
+    }
+}

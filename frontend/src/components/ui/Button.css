@@ -1,0 +1,79 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.btn--sm { padding: 6px 11px; font-size: var(--text-sm); }
+.btn--md { padding: 9px 15px; font-size: var(--text-base); }
+.btn--lg { padding: 11px 20px; font-size: var(--text-md); }
+
+/* Primary — cyan, the one main action per screen */
+.btn--primary {
+  background: var(--cyan);
+  color: #04141a;
+  border-color: var(--cyan);
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--cyan-strong);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+/* Secondary — glass / outlined, neutral actions */
+.btn--secondary {
+  background: var(--bg-3);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+.btn--secondary:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  background: #1c2430;
+}
+
+/* Ghost — quiet actions inside dense UI (tables, cards) */
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+.btn--ghost:hover:not(:disabled) {
+  background: var(--bg-3);
+  color: var(--text-primary);
+}
+
+/* Danger — reserved for irreversible / critical forensic actions */
+.btn--danger {
+  background: var(--red-dim);
+  color: var(--red);
+  border-color: var(--red-border);
+}
+.btn--danger:hover:not(:disabled) {
+  background: rgba(249, 72, 79, 0.22);
+}
+
+.btn__spinner {
+  animation: btn-spin 0.7s linear infinite;
+}
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}

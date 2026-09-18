@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidence &mdash; CASEFILE</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/evidence.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">CF</div>
+        <div class="brand-text">
+          <b>CASEFILE</b>
+          <span>FORENSIC ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item " href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+          Dashboard
+        </a>
+        <a class="nav-item " href="cases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+          </svg>
+          Cases
+        </a>
+        <a class="nav-item active" href="evidence.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M14 3v6h6" />
+          </svg>
+          Evidence
+        </a>
+        <a class="nav-item " href="analysis.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
+          Analysis
+        </a>
+        <a class="nav-item " href="timeline.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 3" />
+          </svg>
+          Timeline
+        </a>
+        <a class="nav-item " href="custody.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+          </svg>
+          Chain of Custody
+        </a>
+        <a class="nav-item " href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M9 13h6M9 17h6" />
+          </svg>
+          Reports
+        </a>
+      </nav>
+
+      <div class="sys-status">
+        <div class="label">SYSTEM STATUS</div>
+        <div class="sys-row"><span class="dot ok"></span>Forensic Engine</div>
+        <div class="sys-row"><span class="dot ok"></span>Database</div>
+        <div class="sys-row"><span class="dot warn"></span>Backend&nbsp;&middot;&nbsp;Mock data</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <div class="topbar">
+        <div class="crumb">
+          <span class="crumb-folder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+            </svg></span>
+          <span class="case-id">CASE-2026-0042</span>
+          <span class="sep">/</span>
+          <span class="case-name">Multi-Vendor CCTV Investigation</span>
+        </div>
+        <div class="topbar-right">
+          <div class="badge checking"><span class="badge-dot"></span>CHECKING&hellip;</div>
+          <div class="investigator">
+            <div class="investigator-avatar">IN</div>
+            Investigator
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="page-head">
+          <div class="page-eyebrow">INGEST</div>
+          <h1 class="page-title">Evidence</h1>
+          <p class="page-sub">Import DVR/NVR exports, footage, and stills for case CASE-2026-0042.</p>
+        </div>
+
+        <!-- DROPZONE -->
+        <div class="dropzone card" id="dropzone" tabindex="0" role="button"
+          aria-label="Drop forensic evidence here or select a file">
+          <div class="dz-scan"></div>
+          <div class="dz-corner tl"></div>
+          <div class="dz-corner tr"></div>
+          <div class="dz-corner bl"></div>
+          <div class="dz-corner br"></div>
+
+          <div class="dz-inner">
+            <div class="dz-plus" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </div>
+            <div class="dz-title">DROP FORENSIC EVIDENCE HERE</div>
+            <div class="dz-sub">DVR / NVR files &nbsp;·&nbsp; Video &nbsp;·&nbsp; Images</div>
+
+            <div class="dz-types">
+              <span class="dz-chip">.DAV</span>
+              <span class="dz-chip">.264 / .265</span>
+              <span class="dz-chip">MP4 / MKV</span>
+              <span class="dz-chip">JPG / PNG</span>
+            </div>
+
+            <button class="dz-select" id="selectFileBtn">SELECT FILE</button>
+            <input type="file" id="fileInput" hidden multiple>
+            <div class="dz-hint">Files are hashed (SHA-256) on ingest and written to a read-only evidence store.</div>
+          </div>
+        </div>
+
+        <!-- INGEST QUEUE -->
+        <div class="queue-head">
+          <span class="eyebrow-label">INGEST QUEUE</span>
+          <span class="queue-count" id="queueCount">3 items</span>
+        </div>
+
+        <div class="queue card">
+          <div class="q-row" data-state="done">
+            <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 9h18" />
+              </svg></div>
+            <div class="q-main">
+              <div class="q-name">CH04_20260814_143500.dav</div>
+              <div class="q-meta">Hikvision DVR &nbsp;·&nbsp; CAM 04 &nbsp;·&nbsp; 1.2 GB</div>
+              <div class="q-hashes">
+                <span class="q-hash-chip">SHA-256&nbsp;<b>a91f4c&hellip;9e6c2e</b></span>
+                <span class="q-hash-chip">MD5&nbsp;<b>7d2a&hellip;e410</b></span>
+              </div>
+            </div>
+            <div class="q-status ok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+              Verified
+            </div>
+          </div>
+
+          <div class="q-row" data-state="progress">
+            <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 9h18" />
+              </svg></div>
+            <div class="q-main">
+              <div class="q-name">CH07_20260814_090211.mp4</div>
+              <div class="q-meta">Reolink NVR &nbsp;·&nbsp; CAM 07 &nbsp;·&nbsp; 640 MB &nbsp;·&nbsp; computing SHA-256
+                &amp; MD5&hellip;</div>
+              <div class="q-bar">
+                <div class="q-bar-fill" style="width:64%"></div>
+              </div>
+            </div>
+            <div class="q-status pending">64%</div>
+          </div>
+
+          <div class="q-row" data-state="error">
+            <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 9h18" />
+              </svg></div>
+            <div class="q-main">
+              <div class="q-name">lobby_snapshot_014.jpg</div>
+              <div class="q-meta">Unknown source &nbsp;·&nbsp; 4.1 MB</div>
+            </div>
+            <div class="q-status err">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 8v5M12 16h.01" />
+              </svg>
+              Metadata missing
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/evidence.js"></script>
+</body>
+
+</html>

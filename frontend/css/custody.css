@@ -1,0 +1,54 @@
+.custody-status-chip{ padding:7px 13px; font-size:11px; }
+
+/* ---------- Stage tracker ---------- */
+.custody-stages{
+  display:flex; align-items:flex-start;
+  padding:30px 26px 24px;
+  margin-bottom:34px;
+  overflow-x:auto;
+}
+.cs-stage{
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+  flex-shrink:0; width:96px; text-align:center;
+}
+.cs-dot{
+  width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  border:2px solid var(--border); background:var(--bg-elev);
+  color:var(--text-3); font-family:var(--mono); font-size:12px; font-weight:700;
+  flex-shrink:0;
+}
+.cs-dot svg{ width:15px; height:15px; }
+.cs-stage.done .cs-dot{ border-color:var(--green); background:var(--green-dim); color:var(--green); }
+.cs-stage.done.verified .cs-dot{ border-color:var(--teal); background:var(--teal-dim); color:var(--teal); box-shadow:0 0 0 4px var(--teal-glow); }
+.cs-stage.active .cs-dot{ border-color:var(--amber); background:var(--amber-dim); position:relative; }
+.cs-dot-pulse{ width:9px; height:9px; border-radius:50%; background:var(--amber); animation:pulse 1.6s ease-in-out infinite; }
+.cs-stage.pending .cs-dot{ color:var(--text-3); }
+.cs-label{ font-size:11px; font-weight:600; color:var(--text-2); line-height:1.4; }
+.cs-stage.done .cs-label, .cs-stage.active .cs-label{ color:var(--text-1); }
+
+.cs-connector{
+  height:2px; background:var(--border); margin-top:17px; flex:1; min-width:16px;
+  border-radius:2px;
+}
+.cs-connector.done{ background:var(--green); }
+
+/* ---------- Audit table ---------- */
+.custody-audit-head{ margin-bottom:14px; }
+
+.custody-table-wrap{ overflow-x:auto; padding:6px 4px 4px; }
+.custody-table{ min-width:760px; }
+.custody-table td.mono{ font-family:var(--mono); font-size:12px; }
+.custody-table td.muted{ color:var(--text-3); }
+.custody-table td.hash{ color:var(--text-2); }
+.custody-table tr.row-highlight{ background:var(--teal-dim); }
+.custody-table tr.row-highlight:hover{ background:var(--teal-dim); }
+
+.custody-footnote{
+  margin-top:14px; font-size:11.5px; color:var(--text-3); font-family:var(--mono);
+}
+
+@media (max-width:700px){
+  .custody-stages{ padding:24px 16px 20px; }
+  .cs-stage{ width:78px; }
+}

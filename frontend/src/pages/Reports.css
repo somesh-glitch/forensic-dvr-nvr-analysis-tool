@@ -1,0 +1,232 @@
+.reports-page {
+    animation: fadeIn 0.25s ease-out;
+}
+
+.reports-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .reports-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.compiler-settings-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.compiler-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    height: 38px;
+    background-color: var(--bg-dark-muted);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0 1rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--cyan);
+}
+
+.export-buttons-list {
+    margin-top: 0.5rem;
+}
+
+/* Report Preview */
+.report-preview-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.report-markdown-card {
+    min-height: 500px;
+    background-color: #0b0f19;
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+}
+
+/* Custom Markdown Renderer Styles */
+.markdown-body {
+    font-family: var(--font-sans);
+    color: #d1d5db;
+    line-height: var(--lh-relaxed);
+}
+
+.markdown-body h1.report-h1 {
+    font-size: var(--text-2xl);
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--cyan);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.markdown-body h2.report-h2 {
+    font-size: var(--text-lg);
+    font-family: var(--font-mono);
+    color: var(--cyan);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.markdown-body h3.report-h3 {
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+}
+
+.markdown-body p {
+    margin-bottom: 1rem;
+}
+
+.markdown-body code.mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    background-color: var(--bg-dark-muted);
+    border: 1px solid var(--border-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    color: #fb923c;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid var(--cyan);
+    background-color: rgba(34, 211, 238, 0.03);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+}
+
+.markdown-body blockquote p {
+    margin: 0;
+}
+
+.markdown-body .report-ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5rem;
+}
+
+.markdown-body table.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: var(--text-xs);
+}
+
+.markdown-body table.report-table th,
+.markdown-body table.report-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.markdown-body table.report-table th {
+    background-color: var(--bg-dark-muted);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.markdown-body table.report-table td {
+    color: var(--text-secondary);
+}
+
+.print-only-logo {
+    display: none;
+}
+
+/* Print Specific Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .print-target,
+    .print-target * {
+        visibility: visible;
+    }
+
+    .print-target {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none !important;
+        background: white !important;
+        padding: 0 !important;
+    }
+
+    .print-target .markdown-body {
+        color: #111827 !important;
+    }
+
+    .print-target .markdown-body h1,
+    .print-target .markdown-body h2,
+    .print-target .markdown-body h3 {
+        color: #111827 !important;
+        border-color: #374151 !important;
+    }
+
+    .print-target .markdown-body table th {
+        background-color: #f3f4f6 !important;
+        color: #111827 !important;
+        border-color: #d1d5db !important;
+    }
+
+    .print-target .markdown-body table td {
+        color: #374151 !important;
+        border-color: #d1d5db !important;
+    }
+
+    .print-target .markdown-body code {
+        background-color: #f3f4f6 !important;
+        color: #b45309 !important;
+        border-color: #e5e7eb !important;
+    }
+
+    .print-target .markdown-body blockquote {
+        background-color: #f9fafb !important;
+        border-color: #9ca3af !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .print-only-logo {
+        display: block !important;
+    }
+}
+
+.empty-preview-card {
+    border: 1px dashed var(--border-color);
+    background-color: var(--bg-dark-muted);
+}

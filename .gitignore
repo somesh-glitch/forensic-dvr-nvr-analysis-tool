@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+
+# Generated files
+uploads/
+outputs/
+reports/
+extracted_videos/
+*.img
+*.dd
+*.raw
+
+# Secrets
+.env.*
+!.env.example

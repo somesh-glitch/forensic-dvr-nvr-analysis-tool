@@ -1,0 +1,364 @@
+/* =========================================================
+   CASEFILE — Forensic Investigation Platform
+   Global Design System
+
+   Direction: a forensic command center — not a SaaS admin panel,
+   not a generic "AI product" gradient page. Deep charcoal/navy
+   base, one disciplined accent (electric cyan) used only for
+   active/informational state, thin glowing borders instead of
+   drop shadows, restrained glass panels. Every other color is a
+   semantic signal (verified / critical / warning), never applied
+   for decoration.
+
+   Typography: Manrope carries structure (headings, nav, stat
+   numbers) — it has more geometric character than Inter at
+   display sizes. Inter carries body copy and UI labels, where
+   its neutrality reads as calm and legible. IBM Plex Mono is
+   reserved exclusively for anything that IS data: hashes, evidence
+   IDs, timestamps, file paths, camera IDs, coordinates.
+   ========================================================= */
+
+:root {
+  /* ---------- Surfaces ---------- */
+  --bg-0: #05070a;          /* app background (deepest) */
+  --bg-1: #0b0f15;          /* base panel surface */
+  --bg-2: #10151d;          /* elevated / glass panel */
+  --bg-3: #171e28;          /* inputs, active rows, hover */
+  --bg-navy: #0c1728;       /* subtle navy undertone for gradients */
+
+  /* ---------- Borders ---------- */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.17);
+
+  /* ---------- Text ---------- */
+  --text-primary: #eef2f6;
+  --text-secondary: #93a2b3;
+  --text-muted: #57626f;
+
+  /* ---------- Accent: electric cyan (primary/active/info) ---------- */
+  --cyan: #22d3ee;
+  --cyan-strong: #67e8f9;
+  --cyan-dim: rgba(34, 211, 238, 0.12);
+  --cyan-border: rgba(34, 211, 238, 0.35);
+  --cyan-glow: rgba(34, 211, 238, 0.28);
+
+  /* ---------- Restrained secondary blue (info highlight) ---------- */
+  --blue: #5b9be0;
+  --blue-dim: rgba(91, 155, 224, 0.12);
+
+  /* ---------- Semantic signal colors ---------- */
+  --green: #34d399;         /* verified / successful / healthy */
+  --green-dim: rgba(52, 211, 153, 0.13);
+  --green-border: rgba(52, 211, 153, 0.32);
+
+  --red: #f9484f;           /* critical / suspicious / failed */
+  --red-dim: rgba(249, 72, 79, 0.13);
+  --red-border: rgba(249, 72, 79, 0.34);
+
+  --amber: #f2a93c;         /* warning / uncertain / processing */
+  --amber-dim: rgba(242, 169, 60, 0.13);
+  --amber-border: rgba(242, 169, 60, 0.34);
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Manrope', 'Inter', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+  --text-xs: 11.5px;
+  --text-sm: 12.5px;
+  --text-base: 14px;
+  --text-md: 15px;
+  --text-lg: 17px;
+  --text-xl: 21px;
+  --text-2xl: 27px;
+  --text-3xl: 34px;
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+  /* ---------- Radius scale ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+
+  /* ---------- Layout ---------- */
+  --sidebar-w: 240px;
+  --sidebar-w-collapsed: 72px;
+  --topbar-h: 62px;
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 320ms;
+
+  /* ---------- Elevation (thin glow, not drop shadow) ---------- */
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.03) inset,
+    0 12px 32px -16px rgba(0, 0, 0, 0.55);
+  --shadow-glow-cyan: 0 0 0 1px var(--cyan-border), 0 0 24px -8px var(--cyan-glow);
+  --shadow-focus: 0 0 0 3px var(--cyan-dim);
+}
+
+/* ========================================================= */
+/* Reset & base                                               */
+/* ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-0);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+::selection {
+  background: var(--cyan-dim);
+  color: var(--text-primary);
+}
+
+/* ========================================================= */
+/* Focus states — always visible, never suppressed            */
+/* ========================================================= */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ========================================================= */
+/* Scrollbars                                                 */
+/* ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-0);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-border);
+}
+
+/* ========================================================= */
+/* Ambient background — quiet grid + two soft radial glows.   */
+/* Fixed behind the whole app; content sits above it (z-index).*/
+/* ========================================================= */
+
+.app-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--bg-0);
+}
+
+.app-background::before {
+  /* subtle structural grid */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+}
+
+.app-background__glow-a {
+  position: absolute;
+  top: -18%;
+  left: -8%;
+  width: 56vw;
+  height: 56vw;
+  max-width: 780px;
+  max-height: 780px;
+  background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 68%);
+  opacity: 0.16;
+  filter: blur(20px);
+}
+
+.app-background__glow-b {
+  position: absolute;
+  bottom: -22%;
+  right: -10%;
+  width: 48vw;
+  height: 48vw;
+  max-width: 680px;
+  max-height: 680px;
+  background: radial-gradient(circle, var(--bg-navy) 0%, transparent 70%);
+  opacity: 0.55;
+  filter: blur(30px);
+}
+
+/* ========================================================= */
+/* Glass panel — shared mixin-equivalent class                */
+/* Used by Card, Sidebar, Topbar, Modal.                      */
+/* ========================================================= */
+
+.glass-panel {
+  background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg-1) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ========================================================= */
+/* Skeleton loading                                           */
+/* ========================================================= */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-3);
+  border-radius: var(--radius-sm);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  animation: skeleton-sweep 1.6s ease-in-out infinite;
+}
+@keyframes skeleton-sweep {
+  100% { transform: translateX(100%); }
+}
+
+/* ========================================================= */
+/* Page transition — applied to route content wrapper         */
+/* ========================================================= */
+
+.page-transition {
+  animation: page-in var(--duration-slow) var(--ease-out);
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ========================================================= */
+/* App shell                                                  */
+/* ========================================================= */
+
+.app-shell {
+  display: flex;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-7) var(--space-8) var(--space-9);
+}
+
+@media (max-width: 1280px) {
+  .app-content {
+    padding: var(--space-6) var(--space-6) var(--space-8);
+  }
+}
+
+@media (max-width: 900px) {
+  .app-content {
+    padding: var(--space-4) var(--space-4) var(--space-7);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-content {
+    padding: var(--space-3) var(--space-3) var(--space-6);
+  }
+}

@@ -1,0 +1,56 @@
+.case-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.case-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.case-form__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.case-form__input {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.case-form__input:focus {
+  border-color: var(--cyan-border);
+  box-shadow: var(--shadow-focus);
+}
+
+.case-form__input::placeholder {
+  color: var(--text-muted);
+}
+
+.case-form__textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.case-form__error {
+  font-size: var(--text-sm);
+  color: var(--red);
+  margin: 0;
+}
+
+.case-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}

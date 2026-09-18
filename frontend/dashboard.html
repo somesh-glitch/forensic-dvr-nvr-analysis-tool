@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard &mdash; CASEFILE</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">CF</div>
+        <div class="brand-text">
+          <b>CASEFILE</b>
+          <span>FORENSIC ANALYSIS</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item active" href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+          Dashboard
+        </a>
+        <a class="nav-item " href="cases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+          </svg>
+          Cases
+        </a>
+        <a class="nav-item " href="evidence.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M14 3v6h6" />
+          </svg>
+          Evidence
+        </a>
+        <a class="nav-item " href="analysis.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
+          Analysis
+        </a>
+        <a class="nav-item " href="timeline.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 3" />
+          </svg>
+          Timeline
+        </a>
+        <a class="nav-item " href="custody.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+          </svg>
+          Chain of Custody
+        </a>
+        <a class="nav-item " href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+            <path d="M9 13h6M9 17h6" />
+          </svg>
+          Reports
+        </a>
+      </nav>
+
+      <div class="sys-status">
+        <div class="label">SYSTEM STATUS</div>
+        <div class="sys-row"><span class="dot ok"></span>Forensic Engine</div>
+        <div class="sys-row"><span class="dot ok"></span>Database</div>
+        <div class="sys-row"><span class="dot warn"></span>Backend&nbsp;&middot;&nbsp;Mock data</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <div class="topbar">
+        <div class="crumb">
+          <span class="crumb-folder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+            </svg></span>
+          <span class="case-id">CASE-2026-0042</span>
+          <span class="sep">/</span>
+          <span class="case-name">Multi-Vendor CCTV Investigation</span>
+        </div>
+        <div class="topbar-right">
+          <div class="badge checking"><span class="badge-dot"></span>CHECKING&hellip;</div>
+          <div class="investigator">
+            <div class="investigator-avatar">IN</div>
+            Investigator
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="page-head">
+          <div class="page-head-text">
+            <div class="page-eyebrow">OVERVIEW</div>
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-sub">Case overview and recent forensic activity.</p>
+          </div>
+        </div>
+
+        <!-- ACTIVE CASE -->
+        <a href="cases.html" class="active-case card grid-texture">
+          <div class="active-case-top">
+            <span class="eyebrow-label ac-eyebrow">
+              <span class="ac-pulse"></span>ACTIVE CASE
+            </span>
+            <span class="ac-id">CASE-2026-0042</span>
+          </div>
+          <h2 class="ac-title">Multi-Vendor CCTV Investigation</h2>
+          <div class="ac-meta">
+            <span class="ac-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="7" width="13" height="12" rx="2" />
+                <path d="M16 10.5l4.3-2.7a.6.6 0 0 1 .9.5v8.4a.6.6 0 0 1-.9.5L16 14.5" />
+              </svg>
+              Hikvision DVR
+            </span>
+            <span class="ac-meta-dot"></span>
+            <span class="ac-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M23 19v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M1 19v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" />
+              </svg>
+              8 Cameras
+            </span>
+          </div>
+          <svg class="ac-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+
+        <!-- STATS -->
+        <div class="stat-grid dash-stats">
+          <div class="card stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                <path d="M14 3v6h6" />
+              </svg>
+            </div>
+            <div class="stat-value">126</div>
+            <div class="stat-label">EVIDENCE FILES</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M23 19v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M1 19v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" />
+              </svg>
+            </div>
+            <div class="stat-value">08</div>
+            <div class="stat-label">CAMERAS</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M13 2L3 14h8l-1 8 10-12h-8z" />
+              </svg>
+            </div>
+            <div class="stat-value">17</div>
+            <div class="stat-label">EVENTS DETECTED</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-icon" style="color:var(--green)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+              </svg>
+            </div>
+            <div class="chip chip-ok stat-integrity-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+              VERIFIED
+            </div>
+            <div class="stat-label">INTEGRITY</div>
+          </div>
+        </div>
+
+        <!-- LOWER GRID -->
+        <div class="dash-lower">
+          <div class="card dash-activity">
+            <div class="dash-panel-head">
+              <span class="eyebrow-label">LIVE FEED</span>
+              <h3 class="dash-panel-title">Recent Activity</h3>
+            </div>
+
+            <div class="activity-list">
+              <div class="activity-row">
+                <div class="activity-icon done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg></div>
+                <div class="activity-main">
+                  <div class="activity-title">Timeline generated</div>
+                  <div class="activity-sub">Unified timeline built from 8 camera sources</div>
+                </div>
+                <div class="activity-time">7D AGO</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M21 21l-4.3-4.3" />
+                  </svg></div>
+                <div class="activity-main">
+                  <div class="activity-title">Analysis pass completed</div>
+                  <div class="activity-sub">Camera 04 &middot; 14:00&ndash;15:30 window &middot; 4 events flagged</div>
+                </div>
+                <div class="activity-time">7D AGO</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg></div>
+                <div class="activity-main">
+                  <div class="activity-title">SHA-256 integrity verified</div>
+                  <div class="activity-sub">All 126 evidence files hash-matched against manifest</div>
+                </div>
+                <div class="activity-time">8D AGO</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon neutral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                    <path d="M14 3v6h6" />
+                  </svg></div>
+                <div class="activity-main">
+                  <div class="activity-title">Evidence imported</div>
+                  <div class="activity-sub">Footage extracted from Hikvision DVR &middot; 8 channels, 126 files</div>
+                </div>
+                <div class="activity-time">8D AGO</div>
+              </div>
+            </div>
+
+            <a href="timeline.html" class="dash-view-all">
+              View full timeline
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="dash-side">
+            <div class="card dash-side-card">
+              <div class="dash-panel-head">
+                <span class="eyebrow-label">QUICK ACTIONS</span>
+              </div>
+              <a href="evidence.html" class="quick-action">
+                <span class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg></span>
+                Ingest new evidence
+              </a>
+              <a href="analysis.html" class="quick-action">
+                <span class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M21 21l-4.3-4.3" />
+                  </svg></span>
+                Run analysis pass
+              </a>
+              <a href="reports.html" class="quick-action">
+                <span class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                    <path d="M9 13h6M9 17h6" />
+                  </svg></span>
+                Generate report
+              </a>
+            </div>
+
+            <div class="card dash-side-card">
+              <div class="dash-panel-head">
+                <span class="eyebrow-label">CASE VENDORS</span>
+              </div>
+              <div class="vendor-row">
+                <span class="vendor-dot"></span>
+                <span class="vendor-name">Hikvision</span>
+                <span class="vendor-count">5 cams</span>
+              </div>
+              <div class="vendor-row">
+                <span class="vendor-dot indigo"></span>
+                <span class="vendor-name">Reolink</span>
+                <span class="vendor-count">2 cams</span>
+              </div>
+              <div class="vendor-row">
+                <span class="vendor-dot amber"></span>
+                <span class="vendor-name">Unverified</span>
+                <span class="vendor-count">1 cam</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>

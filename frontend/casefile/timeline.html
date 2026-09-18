@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline — CASEFILE</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/timeline.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">CF</div>
+      <div class="brand-text">
+        <b>CASEFILE</b>
+        <span>FORENSIC ANALYSIS</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav-item" href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="cases.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>
+        Cases
+      </a>
+      <a class="nav-item" href="evidence.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>
+        Evidence
+      </a>
+      <a class="nav-item" href="analysis.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        Analysis
+      </a>
+      <a class="nav-item active" href="timeline.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Timeline
+      </a>
+      <a class="nav-item" href="custody.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
+        Chain of Custody
+      </a>
+      <a class="nav-item" href="reports.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M9 13h6M9 17h6"/></svg>
+        Reports
+      </a>
+    </nav>
+
+    <div class="sys-status">
+      <div class="label">SYSTEM STATUS</div>
+      <div class="sys-row"><span class="dot ok"></span>Forensic Engine</div>
+      <div class="sys-row"><span class="dot ok"></span>Database</div>
+      <div class="sys-row"><span class="dot bad"></span>Backend</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">
+        <span class="case-id">CASE-2026-0042</span>
+        <span class="sep">/</span>
+        <span class="case-name">Multi-Vendor CCTV Investigation</span>
+      </div>
+      <div class="topbar-right">
+        <div class="badge offline"><span class="badge-dot"></span>OFFLINE</div>
+        <div class="investigator">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          Investigator
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="page-head">
+        <div class="page-eyebrow">CHRONOLOGY</div>
+        <h1 class="page-title">Forensic Timeline</h1>
+        <p class="page-sub">Unified sequence of acquisition, verification, and detected events across 8 camera sources.</p>
+      </div>
+
+      <div class="tl-filters">
+        <button class="tl-filter active" data-filter="all">All</button>
+        <button class="tl-filter" data-filter="custody">Chain of custody</button>
+        <button class="tl-filter" data-filter="analysis">Analysis</button>
+        <button class="tl-filter" data-filter="detection">Detections</button>
+      </div>
+
+      <div class="timeline" id="timeline">
+
+        <div class="tl-item" data-type="custody">
+          <div class="tl-time">10:00</div>
+          <div class="tl-rail"><div class="tl-node custody"></div></div>
+          <div class="tl-card card">
+            <div class="tl-card-title">Evidence acquired</div>
+            <div class="tl-card-desc">Physical DVR unit collected on-site and logged into custody.</div>
+          </div>
+        </div>
+
+        <div class="tl-item" data-type="custody">
+          <div class="tl-time">11:20</div>
+          <div class="tl-rail"><div class="tl-node custody"></div></div>
+          <div class="tl-card card">
+            <div class="tl-card-title">Evidence imported</div>
+            <div class="tl-card-desc">Footage extracted from Hikvision DVR — 8 channels, 126 files.</div>
+          </div>
+        </div>
+
+        <div class="tl-item" data-type="custody">
+          <div class="tl-time">12:05</div>
+          <div class="tl-rail"><div class="tl-node verified"></div></div>
+          <div class="tl-card card verified">
+            <div class="tl-card-title">
+              SHA-256 verified
+              <span class="tl-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                Integrity intact
+              </span>
+            </div>
+            <div class="tl-card-desc">All 126 evidence files hash-matched against acquisition manifest.</div>
+          </div>
+        </div>
+
+        <div class="tl-item" data-type="analysis">
+          <div class="tl-time">13:42</div>
+          <div class="tl-rail"><div class="tl-node analysis"></div></div>
+          <div class="tl-card card">
+            <div class="tl-card-title">Video analyzed</div>
+            <div class="tl-card-desc">Automated detection pass run across Camera 04, 14:00–15:30 window.</div>
+          </div>
+        </div>
+
+        <div class="tl-item" data-type="detection">
+          <div class="tl-time">14:35</div>
+          <div class="tl-rail"><div class="tl-node motion"></div></div>
+          <div class="tl-card card">
+            <div class="tl-card-title">Motion detected</div>
+            <div class="tl-card-desc">Camera 04 — Lobby. Confidence 0.91.</div>
+          </div>
+        </div>
+
+        <div class="tl-item" data-type="detection">
+          <div class="tl-time">14:42</div>
+          <div class="tl-rail"><div class="tl-node person"></div></div>
+          <div class="tl-card card">
+            <div class="tl-card-title">Person detected</div>
+            <div class="tl-card-desc">Camera 04 — Lobby. Confidence 0.87. Snapshot captured.</div>
+          </div>
+        </div>
+
+        <div class="tl-item" data-type="analysis last">
+          <div class="tl-time">15:10</div>
+          <div class="tl-rail"><div class="tl-node report"></div></div>
+          <div class="tl-card card">
+            <div class="tl-card-title">Report generated</div>
+            <div class="tl-card-desc">Forensic summary compiled and queued for investigator sign-off.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/timeline.js"></script>
+</body>
+</html>
